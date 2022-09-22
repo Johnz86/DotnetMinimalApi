@@ -1,4 +1,4 @@
-namespace minimal_api.tests;
+namespace Minimal.Api.Tests;
 
 using Microsoft.AspNetCore.Mvc.Testing;
 public class UnitTest

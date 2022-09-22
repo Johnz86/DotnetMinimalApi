@@ -6,6 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <InternalsVisibleTo Include="minimal_api.tests.HelloWorldTests" />
+    <InternalsVisibleTo Include="Minimal.Api.Tests.HelloWorldTests" />
   </ItemGroup>
 </Project>

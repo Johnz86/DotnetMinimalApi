@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>minimal_api.tests</RootNamespace>
+    <RootNamespace>Minimal.Api.Tests</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -24,6 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\minimal-api\minimal-api.csproj" />
+    <ProjectReference Include="..\Minimal.Api\Minimal.Api.csproj" />
   </ItemGroup>
 </Project>

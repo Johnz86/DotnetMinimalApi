@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Jan Jakubcik <jan.jakubcik@siemens-healthineers.com>",
+  "classifications": [ "Minimal", "Web", "Api"],
+  "identity": "Minimal.ToDo.Api",
+  "name": "Minimal ToDo web api with ASP.NET Core",
+  "shortName": "miniapitodo",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Minimal.Api",
+  "preferNameDirectory": true,
+  "symbols":{
+    "includetest": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true"
+    }
+  },
+  "sources":[{
+    "modifiers": [{
+      "condition": "(!includetest)",
+      "exclude": [ "Minimal.Api.Tests/**/*"]
+      }
+    ]
+  }]
+}

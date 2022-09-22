@@ -7,3 +7,12 @@
 How to write [dotnet tool templates wiki](https://github.com/dotnet/templating/wiki)
 List of available templates for the [dotnet new tool on nuget](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new)
 
+### Quickstart
+
+```
+dotnet new --install .
+dotnet new --list
+dotnet new miniapihello -o SliceFeature
+dotnet new miniapitodo -o SliceFeature
+dotnet new --uninstall .
+```

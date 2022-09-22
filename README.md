@@ -1,14 +1,18 @@
 # Minimal Web APIs in .Net
 
-Minimal Web API are based used on [Vertical Slice Architecture](https://garywoodfine.com/implementing-vertical-slice-architecture/).
 
-Here is an example [solution in .net of Minimal API](https://github.com/isaacOjeda/MinimalApiArchitecture)
 
 ## Reference
 
 - [Minimal APIs Fundamentals in .Net](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0)
 - [Tutorials Minimal APIs for ASPCore.Net](https://docs.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-6.0&tabs=visual-studio-code)
 - [Real World Minimal Apis: Video](https://docs.microsoft.com/en-gb/events/dotnetconf-2021/real-world-minimal-apis)
+
+Minimal Web API are based used on [Vertical Slice Architecture](https://garywoodfine.com/implementing-vertical-slice-architecture/). 
+
+More articles for [Awesome Architecture of Vertical Slices](https://awesome-architecture.com/vertical-slice-architecture/)
+
+Here is an example [of more comprehensive solution in .Net for Minimal API](https://github.com/isaacOjeda/MinimalApiArchitecture)
 
 # Example command
 
