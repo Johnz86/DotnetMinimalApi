@@ -12,7 +12,7 @@ List of available templates for the [dotnet new tool on nuget](https://github.co
 ```
 dotnet new --install .
 dotnet new --list
-dotnet new miniapihello -o SliceFeature
-dotnet new miniapitodo -o SliceFeature
+dotnet new miniapihello -o HelloFeature
+dotnet new miniapitodo -o TodoFeature
 dotnet new --uninstall .
 ```

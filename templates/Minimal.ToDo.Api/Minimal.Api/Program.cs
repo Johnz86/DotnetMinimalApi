@@ -63,7 +63,7 @@ if (app.Environment.IsDevelopment())
 
 app.Run();
 
-class Todo
+public class Todo
 {
     public int Id { get; set; }
     public string? Name { get; set; }
