@@ -4,71 +4,48 @@ public class SwaggerConfig
 {
   public static void ConfigureSwaggerGen(SwaggerGenOptions swaggerGenOptions)
   {
-    swaggerGenOptions.SwaggerDoc("v1", GetInfo());
-    swaggerGenOptions.AddSecurityDefinition("Bearer", GetSecurityScheme());
-    swaggerGenOptions.AddSecurityRequirement(GetSecurityRequirement());    
+    OpenApiInfo info = GetInfo();
+    swaggerGenOptions.SwaggerDoc(info.Version, info);
+    OpenApiSecurityScheme securityScheme = GetSecurityScheme();
+    swaggerGenOptions.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
+    swaggerGenOptions.AddSecurityRequirement(GetSecurityRequirement(securityScheme));
   }
 
-  public static OpenApiInfo GetInfo()
+  public static OpenApiInfo GetInfo() => new OpenApiInfo()
   {
-    return new OpenApiInfo()
+    Version = "v1",
+    Title = "Minimal.Api - JWT Authentication with Swagger",
+    Description = "Implementing JWT Authentication in Minimal API",
+    TermsOfService = new Uri("https://github.com/Johnz86/DotnetMinimalApi"),
+    License = new OpenApiLicense
     {
-      Version = "v1",
-      Title = "Minimal API - JWT Authentication with Swagger demo",
-      Description = "Implementing JWT Authentication in Minimal API",
-      TermsOfService = new Uri("https://github.com/Johnz86/DotnetMinimalApi"),
-      Contact = GetContact(),
-      License = GetLicense()
-    };
-  }
-
-  public static OpenApiContact GetContact()
-  {
-    return new OpenApiContact()
+      Name = "Free License",
+      Url = new Uri("https://github.com/Johnz86/DotnetMinimalApi")
+    },
+    Contact = new OpenApiContact
     {
       Name = "Jan Jakubcik",
       Email = "jan.jakubcik@siemens-healthineers.com",
       Url = new Uri("https://github.com/Johnz86/DotnetMinimalApi")
-    };
-  }
+    }
+  };
 
-  public static OpenApiLicense GetLicense()
+  public static OpenApiSecurityScheme GetSecurityScheme() => new OpenApiSecurityScheme()
   {
-    return new OpenApiLicense()
+    Name = HeaderNames.Authorization,
+    In = ParameterLocation.Header,
+    Type = SecuritySchemeType.Http,
+    Scheme = JwtBearerDefaults.AuthenticationScheme,
+    BearerFormat = "JWT",
+    Description = "JSON Web Token based security. Put **_ONLY_** token in textbox below!",
+    Reference = new OpenApiReference
     {
-      Name = "Free License",
-      Url = new Uri("https://github.com/Johnz86/DotnetMinimalApi")
-    };
-  }
+      Id = JwtBearerDefaults.AuthenticationScheme,
+      Type = ReferenceType.SecurityScheme
+    }
+  };
 
-  public static OpenApiSecurityScheme GetSecurityScheme()
-  {
-    return new OpenApiSecurityScheme()
-    {
-      Name = HeaderNames.Authorization,
-      In = ParameterLocation.Header,
-      Type = SecuritySchemeType.ApiKey,
-      Scheme = JwtBearerDefaults.AuthenticationScheme,
-      BearerFormat = "JWT",
-      Description = "JSON Web Token based security. Insert the token with the 'Bearer ' prefix.",
-    };
-  }
+  public static OpenApiSecurityRequirement GetSecurityRequirement(OpenApiSecurityScheme scheme) =>
+    new OpenApiSecurityRequirement { { scheme, Array.Empty<string>() } };
 
-  public static OpenApiSecurityRequirement GetSecurityRequirement()
-  {
-    return new OpenApiSecurityRequirement()
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = JwtBearerDefaults.AuthenticationScheme
-                }
-            },
-            new string[] {}
-        }
-    };
-  }
 }

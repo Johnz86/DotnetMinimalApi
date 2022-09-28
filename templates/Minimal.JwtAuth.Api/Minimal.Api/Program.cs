@@ -64,19 +64,19 @@ app.MapPost("/security/getToken", [AllowAnonymous] (RequestAccess user) =>
 
 app.MapGet("/employees", [Authorize] async (EmployeeDbContext dbContext) =>
 {
-  var employees = await dbContext.employees.ToListAsync();
+  var employees = await dbContext.Employees.ToListAsync();
   return employees;
 });
 
 app.MapGet("/employees/{id}", [Authorize] async (int id, EmployeeDbContext dbContext) =>
 {
-  var employee = await dbContext.employees.Where(t => t.Id == id).FirstOrDefaultAsync();
+  var employee = await dbContext.Employees.Where(t => t.Id == id).FirstOrDefaultAsync();
   return employee;
 });
 
 app.MapPost("/employees", [Authorize] async (Employee employee, EmployeeDbContext dbContext) =>
 {
-  dbContext.employees.Add(employee);
+  dbContext.Employees.Add(employee);
   await dbContext.SaveChangesAsync();
   return employee;
 });
