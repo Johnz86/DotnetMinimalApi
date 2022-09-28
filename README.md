@@ -1,6 +1,8 @@
 # Minimal Web APIs in .Net
 
-Minimal APIs are architected to create HTTP APIs with minimal footprint. They include only the minimum files, features, and dependencies. In .Net world it usually means Web APIs without use of MVC Controller subclass.
+Minimal APIs are architected to create HTTP APIs with minimal code footprint. 
+They include only the minimum files, features, and dependencies. 
+In .Net world it usually means Web APIs without use of MVC Controller subclass.
 
 ## Reference
 
@@ -8,12 +10,6 @@ Minimal APIs are architected to create HTTP APIs with minimal footprint. They in
 - [Minimal APIs Fundamentals in .Net](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-6.0)
 - [Tutorials Minimal APIs for ASPCore.Net](https://docs.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-6.0&tabs=visual-studio-code)
 - [Real World Minimal Apis: Video](https://docs.microsoft.com/en-gb/events/dotnetconf-2021/real-world-minimal-apis)
-
-Minimal Web API are commonly used on [Vertical Slice Architecture](https://garywoodfine.com/implementing-vertical-slice-architecture/). 
-
-More articles for [Awesome Architecture of Vertical Slices](https://awesome-architecture.com/vertical-slice-architecture/)
-
-Here is an example [of more complex solution in .Net for Minimal API](https://github.com/isaacOjeda/MinimalApiArchitecture)
 
 ## Start from scratch with Minimal API
 
@@ -36,7 +32,7 @@ dotnet add package Microsoft.EntityFrameworkCore.InMemory
 dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
 ```
 
-## Use Custom Templates for Minimal API in .Net
+### Use Custom Templates for Minimal API in .Net
 
 Templates which scaffold projects with Minimal API and Unit tests in .Net
 ```
@@ -52,7 +48,7 @@ If you want to remove these project examples do:
 dotnet new --uninstall .\templates\
 ```
 
-# Differences between minimal APIs and APIs with Controller subclass
+## Differences between minimal APIs and APIs with Controller subclass
 
 -  No support for filters: For example, no support for IAsyncAuthorizationFilter, IAsyncActionFilter, IAsyncExceptionFilter, IAsyncResultFilter, and IAsyncResourceFilter.
 -  No support for model binding, i.e. IModelBinderProvider, IModelBinder. Support can be added with a custom binding shim.
@@ -64,3 +60,16 @@ dotnet new --uninstall .\templates\
 -  No support for OData
 -  No support for ApiVersioning. See this issue for more details.
 
+
+## Usage in the wilds
+
+Minimal Web API are commonly used on 
+- [Vertical Slice Architecture](https://awesome-architecture.com/vertical-slice-architecture/), 
+- [Microservice Architecture](https://awesome-architecture.com/microservices/microservices/), 
+- [Clean Architecture](https://awesome-architecture.com/clean-architecture/), 
+- [IoT Edge devices](https://en.wikipedia.org/wiki/Internet_of_things) 
+- or any infrastructure components with small APIs.
+
+Here is an example [of more complex solution in .Net for Minimal API](https://github.com/isaacOjeda/MinimalApiArchitecture)
+
+Usage of [minimal apis by packt publishing](https://github.com/PacktPublishing/Minimal-APIs-in-ASP.NET-Core-6)

@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Jan Jakubcik <jan.jakubcik@siemens-healthineers.com>",
+  "classifications": [ "Minimal", "Web", "Api", "Authentication", "JWT"],
+  "identity": "Minimal.JwtAuth.Api",
+  "name": "Minimal web api wit JWT Authentication in ASP.NET Core",
+  "shortName": "miniapiauth",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Minimal.Api",
+  "preferNameDirectory": true,
+  "symbols":{
+    "includetest": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true"
+    }
+  },
+  "sources":[{
+    "modifiers": [{
+      "condition": "(!includetest)",
+      "exclude": [ "Minimal.Api.Tests/**/*"]
+      }
+    ]
+  }]
+}
