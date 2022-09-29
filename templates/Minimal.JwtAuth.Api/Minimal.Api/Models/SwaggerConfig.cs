@@ -1,4 +1,5 @@
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 public class SwaggerConfig
 {
@@ -9,6 +10,11 @@ public class SwaggerConfig
     OpenApiSecurityScheme securityScheme = GetSecurityScheme();
     swaggerGenOptions.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
     swaggerGenOptions.AddSecurityRequirement(GetSecurityRequirement(securityScheme));
+  }
+
+  public static void ConfigureSwaggerUI(SwaggerUIOptions swaggerUI)
+  {
+    swaggerUI.InjectStylesheet("/Assets/css/shs-swagger-ui.css");
   }
 
   public static OpenApiInfo GetInfo() => new OpenApiInfo()

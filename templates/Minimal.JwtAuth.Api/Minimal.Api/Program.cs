@@ -28,7 +28,8 @@ app.UseAuthorization();
 if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
-  app.UseSwaggerUI();
+  app.UseStaticFiles();
+  app.UseSwaggerUI(SwaggerConfig.ConfigureSwaggerUI);
 }
 
 app.MapGet("/", [AllowAnonymous] () => "Hello World!");

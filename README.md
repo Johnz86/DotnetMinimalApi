@@ -42,6 +42,7 @@ Then you can create new projects with:
 ```
 dotnet new miniapihello -o HelloFeature
 dotnet new miniapitodo -o TodoFeature
+dotnet new miniapiauth -o EmployeeFeature
 ```
 If you want to remove these project examples do:
 ```

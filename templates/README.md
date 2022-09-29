@@ -14,5 +14,6 @@ dotnet new --install .
 dotnet new --list
 dotnet new miniapihello -o HelloFeature
 dotnet new miniapitodo -o TodoFeature
+dotnet new miniapiauth -o EmployeeFeature
 dotnet new --uninstall .
 ```
