@@ -132,7 +132,7 @@
   --title-2: normal 700 var(--font-size-title-2, calc(var(--font-size) * 0.75)) siemens sans, 'Open Sans', 'Roboto', 'Droid Sans', -apple-system, BlinkMacSystemFont, 'Arial', 'Calibri', sans-serif;
   --body-1: normal 400 var(--font-size-body-1, calc(var(--font-size) * 0.875)) siemens sans, 'Open Sans', 'Roboto', 'Droid Sans', -apple-system, BlinkMacSystemFont, 'Arial', 'Calibri', sans-serif;
   --body-2: normal 400 var(--font-size-body-2, calc(var(--font-size) * 0.75)) siemens sans, 'Open Sans', 'Roboto', 'Droid Sans', -apple-system, BlinkMacSystemFont, 'Arial', 'Calibri', sans-serif;
-  --focus-outline: 0.125rem solid rgb(59, 153, 252);
+  --focus-outline: 0.125rem solid rgba(59, 153, 252, .2);
 
   --highlight-5: rgba(0, 0, 0, .05);
   /* 5% highlight */
@@ -143,39 +143,39 @@
   --highlight-20: rgba(0, 0, 0, .2);
   /* 20% highlight */
   /* Base Colors */
-  --base-0: unquote($white);
+  --base-0: white;
   /* Access bar */
-  --base-1: rgba(235, 235, 235, 1);
+  --base-1: #ebebeb;
   /* Pane, Page Background */
-  --base-2: rgba(245, 245, 245, 1);
+  --base-2: whitesmoke;
   /* Secondary Navigation */
-  --base-3: unquote($white);
+  --base-3: white;
   /* Main Content Area, Accodrion, Modal */
-  --base-4: unquote($white);
+  --base-4: white;
   /* Notification, Popover */
   /* UI Colors */
-  --ui-0: '0,153,153';
+  --ui-0: rgba(0, 153, 153, 1);
   /* Petrol */
-  --ui-1: '0,0,0';
+  --ui-1: rgba(0, 0, 0, 1);
   /* Text, UI Components */
-  --ui-2: '236,102,2';
+  --ui-2: rgba(236, 102, 2, 1);
   /* Orange (Idle) */
-  --ui-3: '207,75,0';
+  --ui-3: rgba(207, 75, 0, 1);
   /* Orange (Hover) */
-  --ui-4: '216,88,8';
+  --ui-4: rgba(216, 88, 8, 1);
   /* Orange (On Press) */
-  --ui-5: '125,125,125';
+  --ui-5: rgba(125, 125, 125, 1);
   /* Slider Handle */
-  --ui-6: '200,200,200';
+  --ui-6: rgba(200, 200, 200, 1);
   /* Slider Handle (disabled) */
-  --ui-7: '255,255,255';
+  --ui-7: rgba(255, 255, 255, 1);
   /* Backgrounds, Overlays */
   /* Functional Colors */
-  --functional-red: '231,0,29';
+  --functional-red: rgba(231, 0, 29, 1);
   /* errors, critical messages */
-  --functional-yellow: '255,210,0';
+  --functional-yellow: rgba(255, 210, 0, 1);
   /* alerts, attention messages */
-  --functional-green: '0,154,56';
+  --functional-green: rgba(0, 154, 56, 1);
   /* confirmation */
   /* Supporting Colors */
   --support-1: rgba(0, 121, 105, 1);
@@ -242,11 +242,11 @@
   --arrow-left: url('data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAuUlEQVRYhe3X4QmAIBAF4Fc0SzvYMjWaLVM7tIwRFERknN67+mEHQQbxPi4Vq0II+LLqT9OLB1gAhv0SV0MOd6exl7zE6sA13Ek7wQBcw49a3gDEwkcAkzVAHa4BUMJzAbTwHAA1PBVAD08BmIRLAWbhUoBpSQDbnj7fPO8BdFqctANmiJRPYIJInQN0RM4kpCJyVwENoVmGFIR2H1AjGBtRDNG+BbhDzNJDKfNU7CP3j/X/GxYOALACckAwdhxwRdcAAAAASUVORK5CYII=');
   /* Box Shadows */
   --shadow-flat: none;
-  --shadow-raised: '0 0.125rem 0.25rem rgba(0,0,0,0.10), 0 -0.0625rem 0.125rem rgba(0,0,0,0.1)';
+  --shadow-raised: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.10), 0 -0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
   /* accordions,cards */
   --shadow-navigation: 0 0 0.5rem rgba(0, 0, 0, 0.10);
   /* Navigation Bar */
-  --shadow-overlay: '0 0.25rem 0.5rem rgba(0,0,0,0.10), 0 -0.0625rem 0.25rem rgba(0,0,0,0.1)';
+  --shadow-overlay: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.10), 0 -0.0625rem 0.25rem rgba(0, 0, 0, 0.1);
   /* tooltip,popover,datepicker,dropdown,search,tools */
 
   /* transitions */
@@ -375,7 +375,7 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 0.75rem 0;
+  padding: 0.85rem 0;
 }
 
 .swagger-ui table.model {
@@ -399,13 +399,22 @@ body {
 
 .swagger-ui .btn.authorize {
   color: white;
-  border-color: white;
+  border: none;
   border-radius: 1rem;
   background-color: rgba(207, 75, 0, 1);
 }
 
-.swagger-ui .auth-btn-wrapper{
+.swagger-ui .auth-btn-wrapper {
   float: right;
+}
+
+.swagger-ui .auth-btn-wrapper .btn:last-of-type {
+  margin: 0;
+}
+
+.swagger-ui .auth-container:last-of-type,
+.swagger-ui .auth-btn-wrapper {
+  padding: 0;
 }
 
 .swagger-ui .modal-btn {
@@ -414,6 +423,31 @@ body {
 
 .swagger-ui .btn.authorize svg {
   fill: white;
+}
+
+.swagger-ui .opblock-tag-section {
+  box-shadow: var(--shadow-raised);
+}
+
+.swagger-ui .opblock-tag-section,
+.swagger-ui .opblock-tag:hover,
+.swagger-ui .operation-tag-content {
+  background: white;
+}
+
+.swagger-ui .opblock-tag-section>.opblock-tag {
+  font-size: unset;
+  border-bottom: none;
+  margin: 0;
+}
+
+.swagger-ui .operation-tag-content {
+  padding: 0 1rem 0 0.75rem;
+}
+
+.swagger-ui .model-box-control:focus, .swagger-ui .models-control:focus, .swagger-ui .opblock-summary-control:focus {
+  outline: var(--focus-outline);
+  border-radius: 3px;
 }
 
 img[alt="Swagger UI"] {
